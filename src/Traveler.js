@@ -15,9 +15,13 @@ class Traveler {
         return pastTrips;
     }
 
-    getCurrentTrips() {
-
+    getCurrentTrips(date) {
+        const currentTrips = this.trips.filter((trip) => {
+            return trip.date === date;
+        });
+        return currentTrips;
     }
+    
 
     getFutureTrips(date) {
         const currentDate = new Date(date);
@@ -31,7 +35,7 @@ class Traveler {
     getPendingTrips() {
         const pendingTrips = this.trips.filter((trip) => {
             return trip.status === 'pending';
-        })
+        });
         return pendingTrips;
     }
 

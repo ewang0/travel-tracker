@@ -208,9 +208,22 @@ describe('Traveler', () => {
         "status": "pending",
         "suggestedActivities": []
       }  
-    ]);
-        
+    ]);  
   });
 
-
+  it("should get current trips, given a date", function() {
+    let result = traveler.getCurrentTrips('2022/07/02');
+    expect(result).to.deep.equal([
+      {
+        "id": 50,
+        "userID": 3,
+        "destinationID": 16,
+        "travelers": 5,
+        "date": "2022/07/02",
+        "duration": 17,
+        "status": "pending",
+        "suggestedActivities": []
+      }
+    ]);  
+  });
 });
