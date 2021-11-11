@@ -6,8 +6,13 @@ class Traveler {
         this.trips = userTrips;
     }
 
-    getPastTrips() {
-
+    getPastTrips(date) {
+        const currentDate = new Date(date);
+        const pastTrips = this.trips.filter((trip) => {
+            let tripDate = new Date(trip.date);
+            return tripDate < currentDate;
+        });
+        return pastTrips;
     }
 
     getCurrentTrips() {
@@ -19,7 +24,10 @@ class Traveler {
     }
 
     getPendingTrips() {
-
+        const pendingTrips = this.trips.filter((trip) => {
+            return trip.status === 'pending';
+        })
+        return pendingTrips;
     }
 
     getTotalSpentCurrentYear() {
