@@ -172,6 +172,43 @@ describe('Traveler', () => {
         "suggestedActivities": []
       }
     ]);
+
+  });
+
+  it("should get future trips, given a date", function() {
+    let result = traveler.getFutureTrips('2021/11/11');
+    expect(result).to.deep.equal([
+      {
+        "id": 3,
+        "userID": 3,
+        "destinationID": 22,
+        "travelers": 4,
+        "date": "2022/05/22",
+        "duration": 17,
+        "status": "pending",
+        "suggestedActivities": []
+      },
+      {
+        "id": 50,
+        "userID": 3,
+        "destinationID": 16,
+        "travelers": 5,
+        "date": "2022/07/02",
+        "duration": 17,
+        "status": "pending",
+        "suggestedActivities": []
+      },
+      {
+        "id": 173,
+        "userID": 3,
+        "destinationID": 9,
+        "travelers": 6,
+        "date": "2023/04/21",
+        "duration": 18,
+        "status": "pending",
+        "suggestedActivities": []
+      }  
+    ]);
         
   });
 

@@ -19,8 +19,13 @@ class Traveler {
 
     }
 
-    getUpcomingTrips() {
-
+    getFutureTrips(date) {
+        const currentDate = new Date(date);
+        const futureTrips = this.trips.filter((trip) => {
+            let tripDate = new Date(trip.date);
+            return tripDate > currentDate;
+        });
+        return futureTrips;
     }
 
     getPendingTrips() {
