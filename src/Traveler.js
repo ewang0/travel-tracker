@@ -39,8 +39,22 @@ class Traveler {
         return pendingTrips;
     }
 
-    getTotalSpentCurrentYear() {
-        
+    getTripsBetweenDates(date1, date2) {
+        const start = new Date(date1);
+        const end = new Date(date2);
+        const tripsBetweenDates = this.trips.filter((trip) => {
+            let tripDate = new Date(trip.date);
+            return tripDate > start && tripDate < end;
+        });
+        return tripsBetweenDates;
+    }
+
+    getTotalSpentCurrentYear(destinationRepository, date) {
+        //get set of trips between currentDate and yearBeginning date
+        const currentDate = new Date(date);
+        const yearStart = `${currentDate.getFullYear()}/01/01`;
+
+        return destinationRepository.getTotalCost();
     }
 }
 

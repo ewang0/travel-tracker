@@ -72,7 +72,8 @@ describe('Traveler', () => {
         "duration": 13,
         "status": "approved",
         "suggestedActivities": []
-      },{
+      },
+      {
         "id": 173,
         "userID": 3,
         "destinationID": 9,
@@ -225,5 +226,41 @@ describe('Traveler', () => {
         "suggestedActivities": []
       }
     ]);  
+  });
+
+  it("should get trips between two dates", function() {
+    let result = traveler.getTripsBetweenDates('2019/08/01', '2021/08/01');
+    expect(result).to.deep.equal([
+      {
+        "id": 65,
+        "userID": 3,
+        "destinationID": 35,
+        "travelers": 4,
+        "date": "2020/03/21",
+        "duration": 18,
+        "status": "approved",
+        "suggestedActivities": []
+      },
+      {
+        "id": 102,
+        "userID": 3,
+        "destinationID": 3,
+        "travelers": 3,
+        "date": "2019/09/26",
+        "duration": 8,
+        "status": "approved",
+        "suggestedActivities": []
+      },
+      {
+        "id": 121,
+        "userID": 3,
+        "destinationID": 44,
+        "travelers": 2,
+        "date": "2020/03/11",
+        "duration": 13,
+        "status": "approved",
+        "suggestedActivities": []
+      }
+    ]);
   });
 });
