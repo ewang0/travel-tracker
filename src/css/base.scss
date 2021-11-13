@@ -1,6 +1,51 @@
 /* This is an example of how to import a partial scss file*/
 @import '_variables';
 
-body {
-  background: $primary-background;
+html, body {
+  font-family: 'Roboto Condensed', sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
+
+.hero-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("hero-image.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height:67%;
+  color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  color: white;
+  font-size: 30px;
+}
+.user-profile {
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  border: none;
+}
+.hero-section-form {
+  position: absolute;
+  h1 {
+    font-size: 50px;
+    color: white;
+  }
+}
+
+.hero-section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
