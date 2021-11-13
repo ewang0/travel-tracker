@@ -30,17 +30,20 @@ let travelerRepository;
 let destinationRepository;
 
 const fetchAllData = () => {
-    Promise.all([fetchTravelerData(), fetchAllTrips(), fetchAllDestinations()])
+    const travelerDataPromise = fetchTravelerData();
+    const tripDataPromise = fetchAllTrips();
+    const destinationDataPromise = fetchAllDestinations();
+    Promise.all([travelerDataPromise, tripDataPromise, destinationDataPromise])
         .then(data => {
-            let allTravelers = data[0];
-            let allTrips = data[1];
-            let allDestinations = data[2];
+            let allTravelers = data[0].travelers;
+            let allTrips = data[1].trips;
+            let allDestinations = data[2].destinations;
 
             tripRepository = new TripRepository(allTrips);
-            destinationRepository = new DestinationRepository(allDestinations)
+            destinationRepository = new DestinationRepository(allDestinations);
             travelerRepository = new TravelerRepository(allTravelers);
 
-            getCurrentUser()
+            getCurrentUser();
         });
 }
 
@@ -48,10 +51,12 @@ const parseAllData = (data) => {
 
 }
 
-const getCurrentUser = ()) => {
+const getCurrentUser = () => {
     const randomTraveler = travelerRepository.getTraveler(currentTravelerID);
     const randomTravelerTrips = tripRepository.getTripDataFor(currentTravelerID);
     currentTraveler = new Traveler(randomTraveler, randomTravelerTrips);
 }
 
+//event listeners
+window.addEventListener("load", fetchAllData);
 
