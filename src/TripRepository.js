@@ -4,7 +4,7 @@ class TripRepository {
     }
 
     getTripDataFor(userID) {
-        const userTripData = trips.filter((trip) => {
+        const userTripData = this.trips.filter((trip) => {
             return userID === trip.userID;
         });
         return userTripData;
