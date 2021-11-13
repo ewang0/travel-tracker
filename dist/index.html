@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/8b5f878867.js" crossorigin="anonymous"></script>
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8b5f878867.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Travel Tracker</title>
+  </head>
+  <body>
+    <section class="hero-section">
+      <!-- <img src="hero-image.png"> -->
+      <nav>
+        <div class="nav-links">
+          <button>Home</button>
+          <button>My Trips</button>
+        </div>
+        <span class="logo">Travel Tracker</span>
+        <div>
+          <span>Welcome, Eric Wang</span>
+          <button class="user-profile"></button>
+        </div>
+      </nav>
+      <div class="hero-section-form">
+        <h1>So, Eric, where to?</h1>
+        <form class="form-container">
+          <label for="date">DATE</label>
+          <input type="date" name="date">
+          <label for="duration">DURATION</label>
+          <input type="number" name="duration" min="0">
+          <label for="travelers">TRAVELERS</label>
+          <input type="number" name="travelers" min="0">
+          <label for="destination">DESTINATION</label>
+          <input type="text" name="destination">
+        </form>
+        <button>Submit</button>
+      </div>
+    </section>
+    <section id="tripsSection">
+      <h2>My Trips</h2>
+    </section>
 
-</body>
+    
+    
+    <script src="bundle.js"></script>
+  </body>
 </html>
