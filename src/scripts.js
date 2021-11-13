@@ -13,4 +13,24 @@ import {
     fetchAllDestinations
 } from './apiCalls.js';
 
-Promise.all([fetchTravelerData(), fetchAllTrips(), fetchAllDestinations()]).then(data => console.log(data));
+import Traveler from './Traveler';
+import DestinationRepository from './DestinationRepository';
+
+
+let getRandomIndex = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+let currentTravelerID = getRandomIndex(1,50);
+
+const fetchAllData = () => {
+    Promise.all([fetchTravelerData(), fetchAllTrips(), fetchAllDestinations()])
+        .then(data => {
+            let allTravelers = data[0];
+            let allTrips = data[1];
+            let allDestinations = data[2];
+
+        });
+}
+
+
