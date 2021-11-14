@@ -1,9 +1,12 @@
 import { expect } from 'chai';
+import DestinationRepository from '../src/DestinationRepository';
 import Traveler from '../src/DestinationRepository';
 
 describe('DestinationRepository', () => {
     let destinationData;
     let destinationRepository;
+    let trips;
+
     beforeEach(function() {
         destinationData = [{
             "id": 1,
@@ -45,49 +48,66 @@ describe('DestinationRepository', () => {
             "alt": "city with clear skys and a road in the day time"
           }
         ];
+        trips = [
+          {
+            "id": 1,
+            "userID": 44,
+            "destinationID": 1,
+            "travelers": 1,
+            "date": "2022/09/16",
+            "duration": 8,
+            "status": "approved",
+            "suggestedActivities": []
+          },
+          {
+            "id": 2,
+            "userID": 35,
+            "destinationID": 2,
+            "travelers": 5,
+            "date": "2022/10/04",
+            "duration": 18,
+            "status": "approved",
+            "suggestedActivities": []
+          }, 
+          {
+            "id": 3,
+            "userID": 3,
+            "destinationID": 5,
+            "travelers": 4,
+            "date": "2022/05/22",
+            "duration": 17,
+            "status": "approved",
+            "suggestedActivities": []
+          }
+        ];
+
         destinationRepository = new DestinationRepository(destinationData);
       });
     
       it("should be a function", function() {
-        expect(Traveler).to.be.a("function");
+        expect(DestinationRepository).to.be.a("function");
       });
     
-      it("should be an instance of Traveler", function() {
-        expect(traveler).to.be.an.instanceOf(Traveler);
+      it("should be an instance of DestinationRepository", function() {
+        expect(destinationRepository).to.be.an.instanceOf(DestinationRepository);
         });
     
-      it("should get pending trips", function() {
-        let result = traveler.getPendingTrips();
-        expect(result).to.deep.equal([{
+      it("should given a trips array, calculate the total cost of all trips", function() {
+        let result = destinationRepository.getTotalCost(trips);
+        expect(result).to.equal(29326);  
+      });
+
+      it("should find a destination given a destination ID", function() {
+        let result = destinationRepository.getDestinationByID(3);
+        expect(result).to.deep.equal(
+          {
             "id": 3,
-            "userID": 3,
-            "destinationID": 22,
-            "travelers": 4,
-            "date": "2022/05/22",
-            "duration": 17,
-            "status": "pending",
-            "suggestedActivities": []
-          },
-          {
-            "id": 50,
-            "userID": 3,
-            "destinationID": 16,
-            "travelers": 5,
-            "date": "2022/07/02",
-            "duration": 17,
-            "status": "pending",
-            "suggestedActivities": []
-          },
-          {
-            "id": 173,
-            "userID": 3,
-            "destinationID": 9,
-            "travelers": 6,
-            "date": "2023/04/21",
-            "duration": 18,
-            "status": "pending",
-            "suggestedActivities": []
+            "destination": "Sydney, Austrailia",
+            "estimatedLodgingCostPerDay": 130,
+            "estimatedFlightCostPerPerson": 950,
+            "image": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+            "alt": "opera house and city buildings on the water with boats"
           }
-        ]);  
+        );
       });
 });
