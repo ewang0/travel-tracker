@@ -311,7 +311,7 @@ describe('Traveler', () => {
 
   it("should get the total year-to-date cost of trips", function() {
     let result = traveler.getTotalSpentCurrentYear(destinationRepo, '2020/11/11');
-    const totalCostPlusAgentFee = 19316;
+    const totalCostPlusAgentFee = 19316.00;
     expect(result).to.equal(totalCostPlusAgentFee);
   });
 });

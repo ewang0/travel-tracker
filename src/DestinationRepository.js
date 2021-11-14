@@ -16,7 +16,15 @@ class DestinationRepository {
             return acc;
         }, 0);
 
-        return totalCost;
+        return Number(totalCost.toFixed(2));
+    }
+
+    getDestinationByID(destinationID) {
+        const targetDestination = this.destinations.find((destination) => {
+            return destination.id === destinationID;
+        });
+
+        return targetDestination;
     }
 }
 
