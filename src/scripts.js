@@ -32,6 +32,7 @@ const fetchAllData = () => {
             parseAllData(data);
             getCurrentUser();
             domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
+            domUpdates.populateDestinationDropdown(destinationRepository.destinations);
         });
 }
 

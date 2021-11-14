@@ -15,10 +15,16 @@ let domUpdates = {
             </div>
           </article>`
         });
+    },
+    populateDestinationDropdown(destinations) {
+      destinations.forEach((destination) => {
+        destinationDropdown.innerHTML += `<option value="${destination.destination}">`;
+      });
     }
 }
 
 //query selectors
 const tripsGrid = document.querySelector('#tripsGrid');
+const destinationDropdown = document.querySelector('#destinationDropdown');
 
 export default domUpdates;
