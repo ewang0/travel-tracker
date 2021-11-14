@@ -22,7 +22,7 @@ class DestinationRepository {
     getDestinationByID(destinationID) {
         const targetDestination = this.destinations.find((destination) => {
             return destination.id === destinationID;
-        })
+        });
 
         return targetDestination;
     }
