@@ -55,17 +55,17 @@ const getCurrentUser = () => {
 }
 
 const addTripData = () => {
-    const newDestinationID = destinationRepository.destinations[destinationRepository.destinations.length-1].id + 1;
-    let newTrip = {
-        id: newDestinationID,
-        userID: currentTravelerID,
-        destinationID:
-        travelers: travelersInput.value,
-        date: dateInput.value,
-        duration: durationInput.value,
-        status: "pending",
-        suggestedActivities: []
-    }
+    // const newDestinationID = destinationRepository.destinations[destinationRepository.destinations.length-1].id + 1;
+    // let newTrip = {
+    //     id: newDestinationID,
+    //     userID: currentTravelerID,
+    //     destinationID:
+    //     travelers: travelersInput.value,
+    //     date: dateInput.value,
+    //     duration: durationInput.value,
+    //     status: "pending",
+    //     suggestedActivities: []
+    // }
 }
 
 //query selectors

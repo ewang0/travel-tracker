@@ -110,4 +110,17 @@ describe('DestinationRepository', () => {
           }
         );
       });
+
+      it("should get a destination given a destination name", function() {
+        let result = destinationRepository.getDestinationByName("Stockholm, Sweden");
+        expect(result).to.deep.equal(
+          {
+          "id": 2,
+          "destination": "Stockholm, Sweden",
+          "estimatedLodgingCostPerDay": 100,
+          "estimatedFlightCostPerPerson": 780,
+          "image": "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+          "alt": "city with boats on the water during the day time"
+        });
+      });
 });

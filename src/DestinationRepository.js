@@ -26,6 +26,14 @@ class DestinationRepository {
 
         return targetDestination;
     }
+
+    getDestinationByName(destinationName) {
+        const targetDestination = this.destinations.find((destination) => {
+            return destination.destination === destinationName;
+        });
+
+        return targetDestination;
+    }
 }
 
 export default DestinationRepository;
