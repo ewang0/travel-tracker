@@ -42,10 +42,54 @@ nav {
   }
 }
 
+.trips-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .hero-section img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 20px;
+}
+
+.card img {
+  height: 310px;
+  width: 500px;
+  border-radius: 20px;
+  background-color: cornflowerblue;
+}
+
+.card-grid-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card-info-tags {
+  display: flex;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+.card-tag {
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+  background-color: lightgray;
+  text-align: center;
+  p {
+    margin-top: 11px;
+  }
 }
 
