@@ -24,16 +24,10 @@ let getRandomIndex = (min, max) => {
   }
 
 let currentTravelerID = getRandomIndex(1,50);
-let currentTraveler;
-let tripRepository;
-let travelerRepository;
-let destinationRepository;
+let currentTraveler, tripRepository, travelerRepository, destinationRepository;
 
 const fetchAllData = () => {
-    const travelerDataPromise = fetchTravelerData();
-    const tripDataPromise = fetchAllTrips();
-    const destinationDataPromise = fetchAllDestinations();
-    Promise.all([travelerDataPromise, tripDataPromise, destinationDataPromise])
+    Promise.all([fetchTravelerData(), fetchAllTrips(), fetchAllDestinations()])
         .then(data => {
             parseAllData(data);
             getCurrentUser();
