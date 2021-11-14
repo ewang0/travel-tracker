@@ -11,7 +11,8 @@ import './images/turing-logo.png'
 import {
     fetchTravelerData, 
     fetchAllTrips,
-    fetchAllDestinations
+    fetchAllDestinations,
+    postTripRequest
 } from './apiCalls.js';
 
 import Traveler from './Traveler';
@@ -52,6 +53,26 @@ const getCurrentUser = () => {
     currentTraveler = new Traveler(randomTraveler, randomTravelerTrips);
     console.log(currentTraveler);
 }
+
+const addTripData = () => {
+    const newDestinationID = destinationRepository.destinations[destinationRepository.destinations.length-1].id + 1;
+    let newTrip = {
+        id: newDestinationID,
+        userID: currentTravelerID,
+        destinationID:
+        travelers: travelersInput.value,
+        date: dateInput.value,
+        duration: durationInput.value,
+        status: "pending",
+        suggestedActivities: []
+    }
+}
+
+//query selectors
+const dateInput = document.querySelector('#dateInput');
+const durationInput = document.querySelector('#durationInput');
+const travelersInput = document.querySelector('#travelersInput');
+const destinationInput = document.querySelector('#destinationInput');
 
 //event listeners
 window.addEventListener("load", fetchAllData);
