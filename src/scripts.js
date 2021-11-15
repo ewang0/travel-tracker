@@ -24,6 +24,7 @@ let getRandomIndex = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+let dateToday;
 let currentTravelerID = getRandomIndex(1,50);
 let currentTraveler, tripRepository, travelerRepository, destinationRepository;
 
@@ -32,6 +33,8 @@ const fetchAllData = () => {
         .then(data => {
             parseAllData(data);
             getCurrentUser();
+            getDateToday();
+            domUpdates.displayAnnualCost(currentTraveler.getTotalSpentCurrentYear(destinationRepository, dateToday));
             domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
             domUpdates.displayUserName(currentTraveler.name);
             domUpdates.populateDestinationDropdown(destinationRepository.destinations);
@@ -54,6 +57,16 @@ const getCurrentUser = () => {
     currentTraveler = new Traveler(randomTraveler, randomTravelerTrips);
     console.log(currentTraveler);
 }
+
+const getDateToday = () => {
+    let today = new Date();
+    let yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
+    let formattedDate = yyyy + '/' + mm + '/' + dd;
+
+    dateToday = formattedDate;
+ }
 
 const addTripData = () => {
     console.log(dateInput.value);

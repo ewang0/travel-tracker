@@ -30,6 +30,10 @@ let domUpdates = {
       const firstName = userName.split(' ')[0];
       welcomeMessage.innerHTML = `So, ${firstName}, where to?`;
     },
+
+    displayAnnualCost(cost) {
+      userAnnualSpending.innerHTML = `<i class="fas fa-info-circle"></i>You've spent $${cost} on trips this year`;
+    },
     
     populateDestinationDropdown(destinations) {
       destinations.forEach((destination) => {
@@ -42,5 +46,6 @@ let domUpdates = {
 const tripsGrid = document.querySelector('#tripsGrid');
 const destinationDropdown = document.querySelector('#destinationDropdown');
 const welcomeMessage = document.querySelector('#welcomeMessage');
+const userAnnualSpending = document.querySelector('#userAnnualSpending');
 
 export default domUpdates;
