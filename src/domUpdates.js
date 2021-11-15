@@ -9,8 +9,8 @@ let domUpdates = {
                 <article class="status-tag">${trip.status}</article>
               </div>
               <div class="card-info-tags">
-                <article class="card-tag"><p id="travelersTag">${trip.travelers} Travelers</p></article>
-                <article class="card-tag"><p id="durationTag">${trip.duration} Days</p></article>
+                <article class="card-tag"><p id="travelersTag">${trip.travelers} travelers</p></article>
+                <article class="card-tag"><p id="durationTag">${trip.duration} days</p></article>
               </div>
             </div>
           </article>`
