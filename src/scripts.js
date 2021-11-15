@@ -83,6 +83,7 @@ const submitTripRequestBtn = document.querySelector('#submitTripRequestBtn');
 //event listeners
 window.addEventListener("load", fetchAllData);
 submitTripRequestBtn.addEventListener("click", (event) => {
+    event.preventDefault();
     addTripData()
         .then(() => {
             return fetchAllTrips();
