@@ -19,12 +19,16 @@ let domUpdates = {
               </div>
             </div>
           </article>`;
-
         });
     },
 
     clearTrips(){
       tripsGrid.innerHTML = '';
+    },
+
+    displayUserName(userName) {
+      const firstName = userName.split(' ')[0];
+      welcomeMessage.innerHTML = `So, ${firstName}, where to?`;
     },
     
     populateDestinationDropdown(destinations) {
@@ -37,5 +41,6 @@ let domUpdates = {
 //query selectors
 const tripsGrid = document.querySelector('#tripsGrid');
 const destinationDropdown = document.querySelector('#destinationDropdown');
+const welcomeMessage = document.querySelector('#welcomeMessage');
 
 export default domUpdates;

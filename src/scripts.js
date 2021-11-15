@@ -33,6 +33,7 @@ const fetchAllData = () => {
             parseAllData(data);
             getCurrentUser();
             domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
+            domUpdates.displayUserName(currentTraveler.name);
             domUpdates.populateDestinationDropdown(destinationRepository.destinations);
         });
 }
