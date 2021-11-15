@@ -28,15 +28,17 @@
         <h1>So, Eric, where to?</h1>
         <form class="form-container">
           <label for="date">DATE</label>
-          <input type="date" name="date">
+          <input id="dateInput" type="date" name="date">
           <label for="duration">DURATION</label>
-          <input type="number" name="duration" min="0">
+          <input id="durationInput" type="number" name="duration" min="0">
           <label for="travelers">TRAVELERS</label>
-          <input type="number" name="travelers" min="0">
+          <input id="travelersInput" type="number" name="travelers" min="0">
           <label for="destination">DESTINATION</label>
-          <input type="text" name="destination">
+          <input id="destinationInput" list="destinationDropdown" name="destination">
+          <datalist id="destinationDropdown">
+          </datalist>
         </form>
-        <button>Submit</button>
+        <button id="submitTripRequestBtn">Submit</button>
       </div>
     </section>
     <section id="tripsSection" class="trips-section">

@@ -11,7 +11,8 @@ import './images/turing-logo.png'
 import {
     fetchTravelerData, 
     fetchAllTrips,
-    fetchAllDestinations
+    fetchAllDestinations,
+    postTripRequest
 } from './apiCalls.js';
 
 import Traveler from './Traveler';
@@ -32,6 +33,7 @@ const fetchAllData = () => {
             parseAllData(data);
             getCurrentUser();
             domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
+            domUpdates.populateDestinationDropdown(destinationRepository.destinations);
         });
 }
 
@@ -52,6 +54,44 @@ const getCurrentUser = () => {
     console.log(currentTraveler);
 }
 
+const addTripData = () => {
+    console.log(dateInput.value);
+    const formattedDate = dateInput.value.split('-').join('/');
+    const newTripID = tripRepository.trips[tripRepository.trips.length-1].id + 1;
+    const newDestinationID = destinationRepository.getDestinationByName(destinationInput.value).id;
+    let newTrip = {
+        id: newTripID,
+        userID: currentTravelerID,
+        destinationID: newDestinationID,
+        travelers: travelersInput.value,
+        date: formattedDate,
+        duration: durationInput.value,
+        status: "pending",
+        suggestedActivities: []
+    }
+    return postTripRequest(newTrip)
+        .then(data => console.log('response', data));
+}
+
+//query selectors
+const dateInput = document.querySelector('#dateInput');
+const durationInput = document.querySelector('#durationInput');
+const travelersInput = document.querySelector('#travelersInput');
+const destinationInput = document.querySelector('#destinationInput');
+const submitTripRequestBtn = document.querySelector('#submitTripRequestBtn');
+
 //event listeners
 window.addEventListener("load", fetchAllData);
+submitTripRequestBtn.addEventListener("click", (event) => {
+    addTripData()
+        .then(() => {
+            return fetchAllTrips();
+        })
+        .then(data => {
+            tripRepository = new TripRepository(data.trips);
+            currentTraveler.trips = tripRepository.getTripDataFor(currentTravelerID);
+            domUpdates.clearTrips();
+            domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
+        })
+})
 
