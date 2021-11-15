@@ -25,10 +25,10 @@
         </div> -->
       </nav>
       <div class="hero-section-form">
-        <h1>So, Eric, where to?</h1>
+        <h1 id="welcomeMessage"></h1>
         <form class="form-container">
           <div class="input-wrapper">
-            <label for="date">DATE</label>
+            <label for="dateInput">DATE</label>
             <input class="date-input" id="dateInput" type="date" name="date">
           </div>
           <div class="input-wrapper">
@@ -48,16 +48,13 @@
           <button id="submitTripRequestBtn">Submit</button>
         </form>
       </div>
+      <p id="userAnnualSpending"><i class="fas fa-info-circle"></i>You've spent $10000 on trips this year</p>
     </section>
     <section id="tripsSection" class="trips-section">
       <h2>My Trips</h2>
-
       <div id="tripsGrid" class="card-grid-container">
       </div>
     </section>
-
-    
-    
     <script src="bundle.js"></script>
   </body>
 </html>
