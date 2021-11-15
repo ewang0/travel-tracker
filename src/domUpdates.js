@@ -16,6 +16,11 @@ let domUpdates = {
           </article>`
         });
     },
+
+    clearTrips(){
+      tripsGrid.innerHTML = '';
+    },
+    
     populateDestinationDropdown(destinations) {
       destinations.forEach((destination) => {
         destinationDropdown.innerHTML += `<option value="${destination.destination}">`;
