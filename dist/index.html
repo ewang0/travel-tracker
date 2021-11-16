@@ -12,7 +12,7 @@
   </head>
   <body>
     <main>
-      <section class="user-login-section">
+      <section id="loginSection" class="user-login-section">
         <video autoplay muted loop id="surfingVideo">
           <source src="surfing.mp4" type="video/mp4">
         </video>
@@ -22,15 +22,15 @@
             <img src="user.png">
           </div>
           <form class="login-form" method="post">
-            <label for="username">Username</label>
-            <input type="text" placeholder="Username">
+            <label  for="username">Username</label>
+            <input id="usernameInput" type="text"name="username" placeholder="Username">
             <label for="password">Password</label>
-            <input type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+            <input id="passwordInput"type="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
           </form>
-          <button>Submit</button>
+          <button id="loginSubmitBtn">Submit</button>
         </div>
       </section>
-      <section class="hero-section" style="display:none;">
+      <section id="heroSection" class="hero-section" style="display:none;">
         <!-- <img src="hero-image.png"> -->
         <nav>
           <!-- <div class="nav-links">

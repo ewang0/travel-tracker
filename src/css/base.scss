@@ -47,18 +47,21 @@ button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   h1 {
     font-family: 'Pacifico', cursive;
-    margin-top: 50px;
+    margin-top: 40px;
   }
   form {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    label {
+      margin-bottom: 2px;
+    }
     input {
       height: 40px;
       width: 225px;
       font-size: 16px;
       padding: 0px 10px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
   }
   button {
@@ -68,7 +71,7 @@ button {
     border-radius: 5px;
     padding: 10px 20px 10px 20px;
     font-size: 16px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     opacity: 90%;
   }
   button:hover {
