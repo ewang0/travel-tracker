@@ -15,6 +15,13 @@ button {
   cursor: pointer;
 }
 .user-login-section {
+  position:absolute;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
   video {
     position:absolute;
     top: 0;
@@ -25,10 +32,55 @@ button {
   }
 }
 .overlay {
-  position:absolute;
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   top: 0;
   left: 0;
   z-index: 2;
+  height: 500px;
+  width: 400px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  h1 {
+    font-family: 'Pacifico', cursive;
+    margin-top: 50px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    input {
+      height: 40px;
+      width: 225px;
+      font-size: 16px;
+      padding: 0px 10px;
+      margin-bottom: 10px;
+    }
+  }
+  button {
+    background-color:#37496F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    font-size: 16px;
+    margin-bottom: 60px;
+    opacity: 90%;
+  }
+  button:hover {
+    opacity: 100%;
+  }
+  .generic-profile-img {
+    img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50px;
+    }
+  }
 }
 
 .hero-section {
@@ -71,6 +123,7 @@ nav {
   font-size: 30px;
   margin: 0;
 }
+
 .user-profile {
   height: 60px;
   width: 60px;
