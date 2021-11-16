@@ -39,6 +39,23 @@ let domUpdates = {
       destinations.forEach((destination) => {
         destinationDropdown.innerHTML += `<option value="${destination.destination}">`;
       });
+    },
+
+    validateLoginCredentials() {
+      const travelerString = usernameInput.value.slice(0,8);
+      const travelerID = Number(usernameInput.value.slice(8));
+      const password = passwordInput.value;
+
+      if(travelerString === "traveler" && 
+          Number.isInteger(travelerID) && 
+          travelerID > 0 && 
+          travelerID < 51 &&
+          password === "travel") {
+            heroSection.removeAttribute("style");
+            tripsSection.removeAttribute("style");
+            loginSection.setAttribute("style", "display:none;");
+      }
+      return travelerID;
     }
 }
 
@@ -47,5 +64,10 @@ const tripsGrid = document.querySelector('#tripsGrid');
 const destinationDropdown = document.querySelector('#destinationDropdown');
 const welcomeMessage = document.querySelector('#welcomeMessage');
 const userAnnualSpending = document.querySelector('#userAnnualSpending');
+const usernameInput = document.querySelector('#usernameInput');
+const passwordInput = document.querySelector('#passwordInput');
+const heroSection = document.querySelector('#heroSection');
+const tripsSection = document.querySelector('#tripsSection');
+const loginSection = document.querySelector('#loginSection');
 
 export default domUpdates;

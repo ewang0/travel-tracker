@@ -11,56 +11,76 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <section class="hero-section">
-      <!-- <img src="hero-image.png"> -->
-      <nav>
-        <!-- <div class="nav-links">
-          <button>Home</button>
-          <button>My Trips</button>
-        </div> -->
-        <span class="logo">Travel Tracker</span>
-        <!-- <div>
-          <span>Welcome, Eric Wang</span>
-          <button class="user-profile"></button>
-        </div> -->
-      </nav>
-      <div class="hero-section-form">
-        <h1 id="welcomeMessage"></h1>
-        <form class="form-container">
-          <div class="input-wrapper">
-            <label for="dateInput">DATE</label>
-            <input class="date-input" id="dateInput" type="date" name="date">
+    <main>
+      <section id="loginSection" class="user-login-section">
+        <video autoplay muted loop id="surfingVideo">
+          <source src="surfing.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+          <h1>Travel Tracker</h1>
+          <div class="generic-profile-img">
+            <img src="user.png">
           </div>
-          <div class="input-wrapper">
-            <label for="duration"># OF DAYS</label>
-            <input class="number-input" id="durationInput" placeholder="#" type="number" name="duration" min="0">
-          </div>
-          <div class="input-wrapper">
-            <label for="travelers"># OF TRAVELERS</label>
-            <input class="number-input" id="travelersInput" placeholder="#" type="number" name="travelers" min="0">
-          </div>
-          <div class="input-wrapper">
-            <label for="destination">DESTINATION</label>
-            <input class="destination-input" placeholder="Search or choose from list" id="destinationInput" list="destinationDropdown" name="destination">
-            <datalist id="destinationDropdown">
-            </datalist>
-          </div>
-          <button id="submitTripRequestBtn">Submit</button>
-        </form>
-      </div>
-      <p id="userAnnualSpending"></p>
-    </section>
-    <section id="tripsSection" class="trips-section">
-      <h2>My Trips</h2>
-      <div class="filters">
-        <button>All</button>
-        <button>Past</button>
-        <button>Current</button>
-        <button>Upcoming</button>
-      </div>
-      <div id="tripsGrid" class="card-grid-container">
-      </div>
-    </section>
+          <form class="login-form" method="post">
+            <label  for="username">Username</label>
+            <input id="usernameInput" type="text"name="username" placeholder="Username">
+            <label for="password">Password</label>
+            <input id="passwordInput"type="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+          </form>
+          <button id="loginSubmitBtn">Submit</button>
+        </div>
+      </section>
+      <section id="heroSection" class="hero-section" style="display:none;">
+        <!-- <img src="hero-image.png"> -->
+        <nav>
+          <!-- <div class="nav-links">
+            <button>Home</button>
+            <button>My Trips</button>
+          </div> -->
+          <span class="logo">Travel Tracker</span>
+          <!-- <div>
+            <span>Welcome, Eric Wang</span>
+            <button class="user-profile"></button>
+          </div> -->
+        </nav>
+        <div class="hero-section-form hidden">
+          <h1 id="welcomeMessage"></h1>
+          <form class="form-container">
+            <div class="input-wrapper">
+              <label for="dateInput">DATE</label>
+              <input class="date-input" id="dateInput" type="date" name="date">
+            </div>
+            <div class="input-wrapper">
+              <label for="duration"># OF DAYS</label>
+              <input class="number-input" id="durationInput" placeholder="#" type="number" name="duration" min="0">
+            </div>
+            <div class="input-wrapper">
+              <label for="travelers"># OF TRAVELERS</label>
+              <input class="number-input" id="travelersInput" placeholder="#" type="number" name="travelers" min="0">
+            </div>
+            <div class="input-wrapper">
+              <label for="destination">DESTINATION</label>
+              <input class="destination-input" placeholder="Search or choose from list" id="destinationInput" list="destinationDropdown" name="destination">
+              <datalist id="destinationDropdown">
+              </datalist>
+            </div>
+            <button id="submitTripRequestBtn">Submit</button>
+          </form>
+        </div>
+        <p id="userAnnualSpending"></p>
+      </section>
+      <section id="tripsSection" class="trips-section" style="display:none;">
+        <h2>My Trips</h2>
+        <div class="filters">
+          <button>All</button>
+          <button>Past</button>
+          <button>Current</button>
+          <button>Upcoming</button>
+        </div>
+        <div id="tripsGrid" class="card-grid-container">
+        </div>
+      </section>
+    </main>
     <script src="bundle.js"></script>
   </body>
 </html>

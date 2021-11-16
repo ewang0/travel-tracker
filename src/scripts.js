@@ -19,20 +19,21 @@ import Traveler from './Traveler';
 import DestinationRepository from './DestinationRepository';
 import TripRepository from './TripRepository';
 import TravelerRepository from './TravelerRepository';
+import { validate } from 'schema-utils';
 
 let getRandomIndex = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
 let dateToday;
-let currentTravelerID = getRandomIndex(1,50);
+let currentTravelerID;
 let currentTraveler, tripRepository, travelerRepository, destinationRepository;
 
 const fetchAllData = () => {
     Promise.all([fetchTravelerData(), fetchAllTrips(), fetchAllDestinations()])
         .then(data => {
             parseAllData(data);
-            getCurrentUser();
+            getCurrentUser(currentTravelerID);
             getDateToday();
             domUpdates.displayAnnualCost(currentTraveler.getTotalSpentCurrentYear(destinationRepository, dateToday));
             domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
@@ -51,9 +52,9 @@ const parseAllData = (data) => {
     travelerRepository = new TravelerRepository(allTravelers);
 }
 
-const getCurrentUser = () => {
-    const randomTraveler = travelerRepository.getTraveler(currentTravelerID);
-    const randomTravelerTrips = tripRepository.getTripDataFor(currentTravelerID);
+const getCurrentUser = (ID) => {
+    const randomTraveler = travelerRepository.getTraveler(ID);
+    const randomTravelerTrips = tripRepository.getTripDataFor(ID);
     currentTraveler = new Traveler(randomTraveler, randomTravelerTrips);
     console.log(currentTraveler);
 }
@@ -93,9 +94,10 @@ const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#travelersInput');
 const destinationInput = document.querySelector('#destinationInput');
 const submitTripRequestBtn = document.querySelector('#submitTripRequestBtn');
+const loginSubmitBtn = document.querySelector('#loginSubmitBtn');
 
 //event listeners
-window.addEventListener("load", fetchAllData);
+// window.addEventListener("load", fetchAllData);
 submitTripRequestBtn.addEventListener("click", (event) => {
     event.preventDefault();
     addTripData()
@@ -108,5 +110,9 @@ submitTripRequestBtn.addEventListener("click", (event) => {
             domUpdates.clearTrips();
             domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
         })
-})
+});
+loginSubmitBtn.addEventListener("click", () => {
+    currentTravelerID = domUpdates.validateLoginCredentials();
+    fetchAllData();
+});
 
