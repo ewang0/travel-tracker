@@ -7,7 +7,7 @@ let domUpdates = {
             } 
 
             tripsGrid.innerHTML += `<article class="card">
-            <img src="${destinations.getDestinationByID(trip.destinationID).image}">
+            <img src=${destinations.getDestinationByID(trip.destinationID).image} alt="${destinations.getDestinationByID(trip.destinationID).alt}">
             <div class="card-info">
               <div class="card-header">
                 <h3><b>${destinations.getDestinationByID(trip.destinationID).destination}</b>&nbsp;&nbsp; ${trip.date}</h3>
