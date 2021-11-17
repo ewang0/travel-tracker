@@ -34,6 +34,7 @@ const fetchAllData = () => {
         .then(data => {
             parseAllData(data);
             getDateToday();
+      
             //userDOM
             if(currentTravelerID) {
                 getCurrentUser(currentTravelerID);
@@ -93,7 +94,30 @@ const addTripData = () => {
         suggestedActivities: []
     }
     return postTripRequest(newTrip)
-        .then(data => console.log('response', data));
+        .then(data => console.log('response', data))
+        .catch(error => alert("Please check your network connection"))
+}
+
+const estimateTripRequestCost = () => {
+    const destinationID = destinationRepository.getDestinationByName(destinationInput.value).id;
+    const formattedDate = dateInput.value.split('-').join('/');
+    if(dateInput.value && 
+        durationInput.value && 
+        travelersInput.value && 
+        destinationInput.value) {
+            let tripObject = {
+                "userID": currentTravelerID,
+                "destinationID": destinationID,
+                "travelers": travelersInput.value,
+                "date": formattedDate,
+                "duration": durationInput.value
+            }
+            const tripEstimate = destinationRepository.getTotalCost([tripObject]);
+            alert(`The estimated cost of your trip is $${tripEstimate}. Press submit to continue with your trip request.`);
+            return tripEstimate;
+        }
+    
+
 }
 
 //query selectors
@@ -103,6 +127,7 @@ const travelersInput = document.querySelector('#travelersInput');
 const destinationInput = document.querySelector('#destinationInput');
 const submitTripRequestBtn = document.querySelector('#submitTripRequestBtn');
 const loginSubmitBtn = document.querySelector('#loginSubmitBtn');
+const tripRequestForm = document.querySelector('#tripRequestForm');
 
 //event listeners
 // window.addEventListener("load", fetchAllData);
@@ -115,10 +140,12 @@ submitTripRequestBtn.addEventListener("click", (event) => {
         .then(data => {
             tripRepository = new TripRepository(data.trips);
             currentTraveler.trips = tripRepository.getTripDataFor(currentTravelerID);
-            domUpdates.clearTrips();
+            domUpdates.clearDOM();
             domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
         })
 });
+
+tripRequestForm.addEventListener("keyup", estimateTripRequestCost);
 loginSubmitBtn.addEventListener("click", () => {
     currentTravelerID = domUpdates.validateLoginCredentials();
     fetchAllData();

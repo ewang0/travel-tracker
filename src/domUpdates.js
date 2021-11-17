@@ -22,8 +22,17 @@ let domUpdates = {
         });
     },
 
-    clearTrips(){
+    clearDOM(){
       tripsGrid.innerHTML = '';
+      dateInput.value = '';
+      durationInput.value = '';
+      travelersInput.value = '';
+      destinationInput.value = '';
+    },
+
+    setMinimumDate(date) {
+      const formattedDate = date.split('/').join('-');
+      dateInput.setAttribute("min", formattedDate);
     },
 
     displayUserName(userName) {
@@ -111,6 +120,10 @@ let domUpdates = {
 const tripsGrid = document.querySelector('#tripsGrid');
 const destinationDropdown = document.querySelector('#destinationDropdown');
 const welcomeMessage = document.querySelector('#welcomeMessage');
+const dateInput = document.querySelector('#dateInput');
+const durationInput = document.querySelector('#durationInput');
+const travelersInput = document.querySelector('#travelersInput');
+const destinationInput = document.querySelector('#destinationInput');
 const userAnnualSpending = document.querySelector('#userAnnualSpending');
 const usernameInput = document.querySelector('#usernameInput');
 const passwordInput = document.querySelector('#passwordInput');
