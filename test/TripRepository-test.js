@@ -24,7 +24,7 @@ describe("TripRepository", () => {
             "travelers": 5,
             "date": "2022/10/04",
             "duration": 18,
-            "status": "approved",
+            "status": "pending",
             "suggestedActivities": []
           }, 
           {
@@ -44,7 +44,7 @@ describe("TripRepository", () => {
             "travelers": 2,
             "date": "2022/02/25",
             "duration": 10,
-            "status": "approved",
+            "status": "pending",
             "suggestedActivities": []
           }, 
           {
@@ -52,7 +52,7 @@ describe("TripRepository", () => {
             "userID": 42,
             "destinationID": 29,
             "travelers": 3,
-            "date": "2022/04/30",
+            "date": "2022/09/16",
             "duration": 18,
             "status": "approved",
             "suggestedActivities": []
@@ -89,12 +89,60 @@ describe("TripRepository", () => {
                 "travelers": 2,
                 "date": "2022/02/25",
                 "duration": 10,
-                "status": "approved",
+                "status": "pending",
                 "suggestedActivities": []
               }
         ]);
     });
+    it("should be get all pending trips", function() {
+      let result = tripRepository.getAllPendingTrips();
+      expect(result).to.deep.equal([
+          {
+            "id": 2,
+            "userID": 35,
+            "destinationID": 25,
+            "travelers": 5,
+            "date": "2022/10/04",
+            "duration": 18,
+            "status": "pending",
+            "suggestedActivities": []
+          }, 
+          {
+            "id": 4,
+            "userID": 44,
+            "destinationID": 14,
+            "travelers": 2,
+            "date": "2022/02/25",
+            "duration": 10,
+            "status": "pending",
+            "suggestedActivities": []
+          }
+      ]);
+    });
 
-
-
+    it("should get all trips on a date given a date", function() {
+      let result = tripRepository.getAllTripsOnDate("2022/09/16");
+      expect(result).to.deep.equal([
+        {
+        "id": 1,
+        "userID": 44,
+        "destinationID": 49,
+        "travelers": 1,
+        "date": "2022/09/16",
+        "duration": 8,
+        "status": "approved",
+        "suggestedActivities": []
+      },
+      {
+        "id": 5,
+        "userID": 42,
+        "destinationID": 29,
+        "travelers": 3,
+        "date": "2022/09/16",
+        "duration": 18,
+        "status": "approved",
+        "suggestedActivities": []
+      }
+    ]);
+  });
 });

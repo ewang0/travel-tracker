@@ -45,7 +45,7 @@
         </nav>
         <div class="hero-section-form hidden">
           <h1 id="welcomeMessage"></h1>
-          <form class="form-container">
+          <form id="tripRequestForm" class="form-container">
             <div class="input-wrapper">
               <label for="dateInput">DATE</label>
               <input class="date-input" id="dateInput" type="date" name="date">
@@ -79,6 +79,49 @@
         </div>
         <div id="tripsGrid" class="card-grid-container">
         </div>
+      </section>
+      <section id="agentDashboard" class="agent-dashboard" style="display:none;">
+        <aside>
+          <span class="logo">Travel Tracker</span>
+          <nav>
+            <ul>
+              <li><i class="fas fa-home"></i>Home</li>
+              <li><i class="fas fa-users"></i>User Search</li>
+            </ul>
+          </nav>
+        </aside>
+
+        <section class="agent-home-main">
+          <h1>DASHBOARD</h1>
+          <div class="main-content-wrapper">
+            <div class="Information">
+              <h2>Information</h2>
+              <div class="card-admin">
+                <p>TOTAL INCOME</p>
+              </div>
+              <div class="card-admin large">
+                <p>TRAVELERS TODAY</p>
+              </div>
+            </div>
+            <div class="new-trip-requests">
+              <h3>New Trip Requests</h3>
+            </div>
+          </div>
+        </section>
+        <section class="agent-search-main" style="display:none;">
+          <h1>DASHBOARD</h1>
+          <div class="main-content-wrapper">
+            <div class="Information">
+              <h2>Information</h2>
+              <div class="card-admin large">
+                <p>User</p>
+              </div>
+            </div>
+            <div class="new-trip-requests">
+              <h3>User Trips</h3>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
     <script src="bundle.js"></script>
