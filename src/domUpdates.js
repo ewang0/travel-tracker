@@ -109,6 +109,9 @@ let domUpdates = {
       } else if (usernameInput.value === "agency" && password === "travel") {
           agentDashboardSection.removeAttribute("style");
           loginSection.setAttribute("style", "display:none;");
+      } else {
+          alert('Incorrect username or password.');
+          return;
       }
       return travelerID;
     }
