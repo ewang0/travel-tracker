@@ -24,7 +24,7 @@ describe("TripRepository", () => {
             "travelers": 5,
             "date": "2022/10/04",
             "duration": 18,
-            "status": "approved",
+            "status": "pending",
             "suggestedActivities": []
           }, 
           {
@@ -44,7 +44,7 @@ describe("TripRepository", () => {
             "travelers": 2,
             "date": "2022/02/25",
             "duration": 10,
-            "status": "approved",
+            "status": "pending",
             "suggestedActivities": []
           }, 
           {
@@ -89,12 +89,34 @@ describe("TripRepository", () => {
                 "travelers": 2,
                 "date": "2022/02/25",
                 "duration": 10,
-                "status": "approved",
+                "status": "pending",
                 "suggestedActivities": []
               }
         ]);
     });
-
-
-
+    it("should be get all pending trips", function() {
+      let result = tripRepository.getAllPendingTrips();
+      expect(result).to.deep.equal([
+          {
+            "id": 2,
+            "userID": 35,
+            "destinationID": 25,
+            "travelers": 5,
+            "date": "2022/10/04",
+            "duration": 18,
+            "status": "pending",
+            "suggestedActivities": []
+          }, 
+          {
+            "id": 4,
+            "userID": 44,
+            "destinationID": 14,
+            "travelers": 2,
+            "date": "2022/02/25",
+            "duration": 10,
+            "status": "pending",
+            "suggestedActivities": []
+          }
+      ]);
+    });
 });
