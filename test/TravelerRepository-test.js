@@ -118,7 +118,4 @@ describe("TravelerRepository", () => {
             {id:5, name:"Tiffy Grout"}
         ]);
     });
-
-
-
 });
