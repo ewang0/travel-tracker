@@ -2,7 +2,6 @@
 
 > A 7-Day Solo Project by Eric Wang
 <img width="1437" alt="Screen Shot 2021-11-17 at 12 22 44 PM" src="https://user-images.githubusercontent.com/87143658/142277177-f95f03e6-93e0-4c17-8034-c0daa498a7d2.png">
-<img width="1437" alt="Screen Shot 2021-11-17 at 12 23 44 PM" src="https://user-images.githubusercontent.com/87143658/142277495-9f532c44-e41a-4616-85eb-628ee3be2b74.png">
 
 
 ## Contents
@@ -44,9 +43,9 @@ The project's goals, listed below in an abbreviated form, are taken directly fro
 
 To see the project in action, clone the repo down to your local machine. You will need to clone down this [local server](https://github.com/turingschool-examples/travel-tracker-api) and have it running in a separate tab in your terminal each time you run the client. Once these two steps are completed, run:
 
-
-
-
+```bash
+npm start
+```
 
  > [Back to the top](#Travel-Tracker)
 
