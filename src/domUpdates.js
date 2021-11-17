@@ -45,6 +45,7 @@ let domUpdates = {
       const tripsInGivenYear = tripRepository.getAllTripsOnYear(year);
       const totalAgencyIncomeInGivenYear = destinationRepository.getTotalCost(tripsInGivenYear)*0.1;
       totalIncomeYear.innerHTML = `$${totalAgencyIncomeInGivenYear}`;
+      totalIncomeHeader.innerHTML = `INCOME ${year}`;
     },
 
     displayAgencyTravelersOnDate(tripRepository, travelerRepository, date) {
@@ -105,6 +106,8 @@ let domUpdates = {
 }
 
 //query selectors
+
+//user
 const tripsGrid = document.querySelector('#tripsGrid');
 const destinationDropdown = document.querySelector('#destinationDropdown');
 const welcomeMessage = document.querySelector('#welcomeMessage');
@@ -115,9 +118,11 @@ const heroSection = document.querySelector('#heroSection');
 const tripsSection = document.querySelector('#tripsSection');
 const loginSection = document.querySelector('#loginSection');
 
+//agent
 const agentDashboardSection = document.querySelector('#agentDashboard');
 const totalIncomeYear = document.querySelector('#totalIncomeYear');
 const tableTravelersToday = document.querySelector('#tableTravelersToday');
 const allPendingTripsBlock = document.querySelector('#allPendingTrips');
+const totalIncomeHeader = document.querySelector('#totalIncomeHeader');
 
 export default domUpdates;

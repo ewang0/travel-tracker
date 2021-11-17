@@ -12,7 +12,7 @@
   </head>
   <body>
     <main>
-      <section id="loginSection" class="user-login-section">
+      <section id="loginSection" class="user-login-section" style="display:none;">
         <video autoplay muted loop id="surfingVideo">
           <source src="surfing.mp4" type="video/mp4">
         </video>
@@ -80,7 +80,7 @@
         <div id="tripsGrid" class="card-grid-container">
         </div>
       </section>
-      <section id="agentDashboard" class="agent-dashboard" style="display:none;">
+      <section id="agentDashboard" class="agent-dashboard">
         <aside>
           <span class="logo">Travel Tracker</span>
           <nav>
@@ -97,7 +97,7 @@
             <div class="Information">
               <h2>Information</h2>
               <article class="card-admin">
-                <p>2021 INCOME</p>
+                <p id="totalIncomeHeader"></p>
                 <span id="totalIncomeYear"></span>
               </article>
               <article class="card-admin large">
@@ -112,7 +112,8 @@
             </div>
             <div class="new-trip-requests">
               <h3>New Trip Requests</h3>
-              <div id="allPendingTrips"></div>
+              <article id="allPendingTrips" class="card-admin trips">
+              </article>
             </div>
           </div>
         </section>
