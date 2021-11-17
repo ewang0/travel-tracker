@@ -52,7 +52,7 @@ describe("TripRepository", () => {
             "userID": 42,
             "destinationID": 29,
             "travelers": 3,
-            "date": "2022/04/30",
+            "date": "2022/09/16",
             "duration": 18,
             "status": "approved",
             "suggestedActivities": []
@@ -119,4 +119,30 @@ describe("TripRepository", () => {
           }
       ]);
     });
+
+    it("should get all trips on a date given a date", function() {
+      let result = tripRepository.getAllTripsOnDate("2022/09/16");
+      expect(result).to.deep.equal([
+        {
+        "id": 1,
+        "userID": 44,
+        "destinationID": 49,
+        "travelers": 1,
+        "date": "2022/09/16",
+        "duration": 8,
+        "status": "approved",
+        "suggestedActivities": []
+      },
+      {
+        "id": 5,
+        "userID": 42,
+        "destinationID": 29,
+        "travelers": 3,
+        "date": "2022/09/16",
+        "duration": 18,
+        "status": "approved",
+        "suggestedActivities": []
+      }
+    ]);
+  });
 });

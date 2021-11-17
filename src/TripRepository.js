@@ -25,6 +25,16 @@ class TripRepository {
 
         return sortedPendingTrips;
     }
+
+    getAllTripsOnDate(date) {
+        const allTripsOnDate = this.trips.filter((trip) => {
+            if (trip.date === date) {
+                return trip;
+            }
+        });
+
+        return allTripsOnDate;
+    }
 }
 
 export default TripRepository;
