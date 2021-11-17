@@ -30,6 +30,11 @@ let domUpdates = {
       destinationInput.value = '';
     },
 
+    setMinimumDate(date) {
+      const formattedDate = date.split('/').join('-');
+      dateInput.setAttribute("min", formattedDate);
+    },
+
     displayUserName(userName) {
       const firstName = userName.split(' ')[0];
       welcomeMessage.innerHTML = `So, ${firstName}, where to?`;

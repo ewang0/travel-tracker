@@ -38,6 +38,7 @@ const fetchAllData = () => {
             domUpdates.displayAnnualCost(currentTraveler.getTotalSpentCurrentYear(destinationRepository, dateToday));
             domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
             domUpdates.displayUserName(currentTraveler.name);
+            domUpdates.setMinimumDate(dateToday);
             domUpdates.populateDestinationDropdown(destinationRepository.destinations);
         });
 }
