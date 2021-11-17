@@ -1,5 +1,7 @@
 /* This is an example of how to import a partial scss file*/
+@use "mixins.scss" as mixin;
 @import '_variables';
+
 
 html, body {
   font-family: 'Roboto Condensed', sans-serif;
@@ -14,11 +16,10 @@ button {
   font-size: 20px;
   cursor: pointer;
 }
+
 .user-login-section {
   position:absolute;
-  display:flex;
-  justify-content: center;
-  align-items: center;
+  @include mixin.flexbox(0, center, center);
   height: 100%;
   width: 100%;
 
@@ -33,10 +34,7 @@ button {
 }
 .overlay {
   position:relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  @include mixin.flexbox(column, space-between, center);
   top: 0;
   left: 0;
   z-index: 2;
@@ -44,14 +42,13 @@ button {
   width: 400px;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: $card-shadow;
   h1 {
     font-family: 'Pacifico', cursive;
     margin-top: 40px;
   }
   form {
-    display: flex;
-    flex-direction: column;
+    @include mixin.flexbox(column, 0, 0);
     margin-top: 10px;
     label {
       margin-bottom: 2px;
@@ -65,7 +62,7 @@ button {
     }
   }
   button {
-    background-color:#37496F;
+    background-color:$midnight;
     color: white;
     border: none;
     border-radius: 5px;
@@ -87,10 +84,7 @@ button {
 }
 
 .hero-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  @include mixin.flexbox(column, space-between, center);
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), url("hero-image.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -114,8 +108,7 @@ button {
 }
 
 nav {
-  display: flex;
-  justify-content: center;
+  @include mixin.flexbox(0, center, 0);
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -134,9 +127,7 @@ nav {
   border: none;
 }
 .hero-section-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include mixin.flexbox(column, 0, center);
   h1 {
     font-size: 50px;
     color: white;
@@ -161,15 +152,12 @@ nav {
   button:hover {
     cursor: pointer;
     opacity: 100%;
-    
   }
   
 }
 
 .trips-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include mixin.flexbox(column, 0, center);
   h2 {
     margin-top: 45px;
     font-size: 30px;
@@ -186,15 +174,14 @@ nav {
     height: 310px;
     width: 500px;
     border-radius: 15px;
-    background-color: #37496F;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    background-color: $midnight;
+    box-shadow: $card-shadow;
   }
 }
 
 
 .card-grid-container {
-  display: flex;
-  justify-content: center;
+  @include mixin.flexbox(0, center, 0);
   flex-wrap: wrap;
 }
 
@@ -203,8 +190,7 @@ nav {
 }
 
 .card-header {
-  display: flex;
-  justify-content: space-between;
+  @include mixin.flexbox(0, space-between, 0);
   h3 {
     font-weight: lighter;
     font-size: 18px;
@@ -213,6 +199,7 @@ nav {
     font-size: 20px;
   }
 }
+
 .card-tag {
   height: 40px;
   width: 100px;
@@ -226,6 +213,7 @@ nav {
     margin-top: 11px;
   }
 }
+
 .status-tag {
   margin-top: 17px;
   color: white;
@@ -239,11 +227,11 @@ nav {
 }
 
 .approved {
-  background-color: #26A65B;
+  background-color: $approved-green;
 }
 
 .pending {
-  background-color: #B8860B;
+  background-color: $pending-yellow;
 }
 
 .form-container {
@@ -281,7 +269,7 @@ nav {
     width: 120px;
     border-radius: 5px;
     border: none;
-    background-color: #37496F;
+    background-color: $midnight;
     opacity: 90%;
     color: white;
     margin-top: 18px;
@@ -302,21 +290,17 @@ nav {
   aside {
     width: 300px;
     height: 100vh;
-    background-color:#37496F ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color:$midnight;
+    @include mixin.flexbox(column, 0, center);
     color: white;
   }
 
   .agent-home-main {
-    display: flex;
-    flex-direction: column;
+    @include mixin.flexbox(column, 0, 0);
   }
 
   .main-content-wrapper {
     display: flex;
-
     }
 
   .card-admin {
@@ -324,12 +308,11 @@ nav {
     width: 330px;
     background-color: white;
     border-radius: 5px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: $card-shadow;
     margin: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include mixin.flexbox(column, 0, center);
   }
+  
   .large {
     height: 350px;
   }
