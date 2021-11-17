@@ -316,7 +316,6 @@ nav {
 
   .main-content-wrapper {
     display: flex;
-
     }
 
   .card-admin {
@@ -329,9 +328,27 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: scroll;
   }
   .large {
     height: 350px;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+    padding-left: 20px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ebebeb;
   }
 
   ul {
