@@ -12,7 +12,7 @@
   </head>
   <body>
     <main>
-      <section id="loginSection" class="user-login-section" style="display:none;">
+      <section id="loginSection" class="user-login-section">
         <video autoplay muted loop id="surfingVideo">
           <source src="surfing.mp4" type="video/mp4">
         </video>
@@ -45,7 +45,7 @@
         </nav>
         <div class="hero-section-form hidden">
           <h1 id="welcomeMessage"></h1>
-          <form class="form-container">
+          <form id="tripRequestForm" class="form-container">
             <div class="input-wrapper">
               <label for="dateInput">DATE</label>
               <input class="date-input" id="dateInput" type="date" name="date">
@@ -80,7 +80,7 @@
         <div id="tripsGrid" class="card-grid-container">
         </div>
       </section>
-      <section id="agentDashboard" class="agent-dashboard">
+      <section id="agentDashboard" class="agent-dashboard" style="display:none;">
         <aside>
           <span class="logo">Travel Tracker</span>
           <nav>
