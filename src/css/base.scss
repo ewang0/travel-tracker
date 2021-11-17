@@ -310,11 +310,34 @@ nav {
     border-radius: 5px;
     box-shadow: $card-shadow;
     margin: 20px;
+    overflow: scroll;
     @include mixin.flexbox(column, 0, center);
   }
-  
+
   .large {
     height: 350px;
+  }
+
+  .trips {
+    width: 650px;
+    height: 100%;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+    padding-left: 20px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ebebeb;
   }
 
   ul {

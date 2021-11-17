@@ -35,6 +35,16 @@ class TripRepository {
 
         return allTripsOnDate;
     }
+
+    getAllTripsOnYear(year) {
+        const allTripsOnYear = this.trips.filter((trip) => {
+            const tripYear = trip.date.slice(0,4);
+            if (tripYear === year) {
+                return trip;
+            }
+        });
+        return allTripsOnYear;
+    }
 }
 
 export default TripRepository;

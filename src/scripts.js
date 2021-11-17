@@ -33,13 +33,21 @@ const fetchAllData = () => {
     Promise.all([fetchTravelerData(), fetchAllTrips(), fetchAllDestinations()])
         .then(data => {
             parseAllData(data);
-            getCurrentUser(currentTravelerID);
             getDateToday();
-            domUpdates.displayAnnualCost(currentTraveler.getTotalSpentCurrentYear(destinationRepository, dateToday));
-            domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
-            domUpdates.displayUserName(currentTraveler.name);
-            domUpdates.setMinimumDate(dateToday);
-            domUpdates.populateDestinationDropdown(destinationRepository.destinations);
+      
+            //userDOM
+            if(currentTravelerID) {
+                getCurrentUser(currentTravelerID);
+                domUpdates.displayAnnualCost(currentTraveler.getTotalSpentCurrentYear(destinationRepository, dateToday));
+                domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
+                domUpdates.displayUserName(currentTraveler.name);
+                domUpdates.populateDestinationDropdown(destinationRepository.destinations);
+            }
+            
+            //agentDOM
+            domUpdates.displayAgencyIncome(destinationRepository, tripRepository, dateToday.slice(0,4));
+            domUpdates.displayAgencyTravelersOnDate(tripRepository, travelerRepository, dateToday);
+            domUpdates.displayAllPendingTrips(tripRepository, destinationRepository);
         });
 }
 

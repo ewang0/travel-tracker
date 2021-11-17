@@ -50,6 +50,49 @@ let domUpdates = {
       });
     },
 
+    displayAgencyIncome(destinationRepository, tripRepository, year) {
+      const tripsInGivenYear = tripRepository.getAllTripsOnYear(year);
+      const totalAgencyIncomeInGivenYear = destinationRepository.getTotalCost(tripsInGivenYear)*0.1;
+      totalIncomeYear.innerHTML = `$${totalAgencyIncomeInGivenYear}`;
+      totalIncomeHeader.innerHTML = `INCOME ${year}`;
+    },
+
+    displayAgencyTravelersOnDate(tripRepository, travelerRepository, date) {
+      const allTripsOnDate = tripRepository.getAllTripsOnDate(date);
+      const allTravelersOnDate = travelerRepository.getTravelersOnTrips(allTripsOnDate);
+      allTravelersOnDate.forEach((traveler) => {
+        tableTravelersToday.innerHTML += `
+          <tr>
+            <td>${traveler.name}</td>
+            <td>${traveler.id}</td>
+          </tr>`
+        });  
+    },
+
+    displayAllPendingTrips(tripRepository, destinations){
+      const pendingTrips = tripRepository.getAllPendingTrips();
+      pendingTrips.forEach((trip) => {
+        allPendingTripsBlock.innerHTML += 
+        `<article class="card">
+          <img src=${destinations.getDestinationByID(trip.destinationID).image} alt="${destinations.getDestinationByID(trip.destinationID).alt}">
+          <div class="card-info">
+            <div class="card-header">
+              <h3><b>${destinations.getDestinationByID(trip.destinationID).destination}</b>&nbsp;&nbsp; ${trip.date}</h3>
+              <article class="status-tag ${trip.status}"><i class="fas fa-hourglass-start fa-sm"></i>${trip.status}</article>
+            </div>
+            <div class="card-info-tags">
+              <article class="card-tag"><p id="travelersTag">${trip.travelers} travelers</p></article>
+              <article class="card-tag"><p id="durationTag">${trip.duration} days</p></article>
+            </div>
+          </div>
+        </article>`
+      });
+    },
+
+    displayInfoAgentDashboardHome() {
+
+    },
+
     validateLoginCredentials() {
       const travelerString = usernameInput.value.slice(0,8);
       const travelerID = Number(usernameInput.value.slice(8));
@@ -72,6 +115,8 @@ let domUpdates = {
 }
 
 //query selectors
+
+//user
 const tripsGrid = document.querySelector('#tripsGrid');
 const destinationDropdown = document.querySelector('#destinationDropdown');
 const welcomeMessage = document.querySelector('#welcomeMessage');
@@ -85,6 +130,12 @@ const passwordInput = document.querySelector('#passwordInput');
 const heroSection = document.querySelector('#heroSection');
 const tripsSection = document.querySelector('#tripsSection');
 const loginSection = document.querySelector('#loginSection');
+
+//agent
 const agentDashboardSection = document.querySelector('#agentDashboard');
+const totalIncomeYear = document.querySelector('#totalIncomeYear');
+const tableTravelersToday = document.querySelector('#tableTravelersToday');
+const allPendingTripsBlock = document.querySelector('#allPendingTrips');
+const totalIncomeHeader = document.querySelector('#totalIncomeHeader');
 
 export default domUpdates;

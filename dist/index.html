@@ -96,15 +96,24 @@
           <div class="main-content-wrapper">
             <div class="Information">
               <h2>Information</h2>
-              <div class="card-admin">
-                <p>TOTAL INCOME</p>
-              </div>
-              <div class="card-admin large">
+              <article class="card-admin">
+                <p id="totalIncomeHeader"></p>
+                <span id="totalIncomeYear"></span>
+              </article>
+              <article class="card-admin large">
                 <p>TRAVELERS TODAY</p>
-              </div>
+                <table id="tableTravelersToday">
+                  <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                  </tr>
+                </table>
+              </article>
             </div>
             <div class="new-trip-requests">
               <h3>New Trip Requests</h3>
+              <article id="allPendingTrips" class="card-admin trips">
+              </article>
             </div>
           </div>
         </section>
