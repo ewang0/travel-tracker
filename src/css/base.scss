@@ -296,4 +296,45 @@ nav {
   }
 }
 
+.agent-dashboard {
+  background-color: #DFE4EF;
+  display: flex;
+  aside {
+    width: 300px;
+    height: 100vh;
+    background-color:#37496F ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
 
+  .agent-home-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-content-wrapper {
+    display: flex;
+
+    }
+
+  .card-admin {
+    height: 150px;
+    width: 330px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .large {
+    height: 350px;
+  }
+
+  ul {
+    list-style: none;
+  }
+}
