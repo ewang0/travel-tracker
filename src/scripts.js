@@ -85,7 +85,8 @@ const addTripData = () => {
         suggestedActivities: []
     }
     return postTripRequest(newTrip)
-        .then(data => console.log('response', data));
+        .then(data => console.log('response', data))
+        .catch(error => alert("Please check your network connection"))
 }
 
 //query selectors
@@ -107,7 +108,7 @@ submitTripRequestBtn.addEventListener("click", (event) => {
         .then(data => {
             tripRepository = new TripRepository(data.trips);
             currentTraveler.trips = tripRepository.getTripDataFor(currentTravelerID);
-            domUpdates.clearTrips();
+            domUpdates.clearDOM();
             domUpdates.displayTrips(currentTraveler.trips, destinationRepository);
         })
 });
