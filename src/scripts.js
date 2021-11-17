@@ -26,7 +26,7 @@ let getRandomIndex = (min, max) => {
   }
 
 let dateToday;
-let currentTravelerID;
+let currentTravelerID = getRandomIndex(1,50);
 let currentTraveler, tripRepository, travelerRepository, destinationRepository;
 
 const fetchAllData = () => {
@@ -130,7 +130,7 @@ const loginSubmitBtn = document.querySelector('#loginSubmitBtn');
 const tripRequestForm = document.querySelector('#tripRequestForm');
 
 //event listeners
-// window.addEventListener("load", fetchAllData);
+window.addEventListener("load", fetchAllData);
 submitTripRequestBtn.addEventListener("click", (event) => {
     event.preventDefault();
     addTripData()
