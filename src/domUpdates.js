@@ -54,6 +54,9 @@ let domUpdates = {
             heroSection.removeAttribute("style");
             tripsSection.removeAttribute("style");
             loginSection.setAttribute("style", "display:none;");
+      } else if (usernameInput.value === "agency" && password === "travel") {
+          agentDashboardSection.removeAttribute("style");
+          loginSection.setAttribute("style", "display:none;");
       }
       return travelerID;
     }
@@ -69,5 +72,6 @@ const passwordInput = document.querySelector('#passwordInput');
 const heroSection = document.querySelector('#heroSection');
 const tripsSection = document.querySelector('#tripsSection');
 const loginSection = document.querySelector('#loginSection');
+const agentDashboardSection = document.querySelector('#agentDashboard');
 
 export default domUpdates;
