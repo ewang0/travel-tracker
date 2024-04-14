@@ -8,11 +8,10 @@
 1. [Overview and Goals](#overview)
 1. [Technologies](#technologies)
 1. [Demo](#demo)
----
 
 ## Overview
 
-Travel-Tracker is an application to manage and track different trips for users as well as a travel agency (administrator). App is popualted with fictional travel data fetched from an API.
+Travel-Tracker is an application to manage and track different trips for users as well as a travel agency (administrator). App is populated with fictional travel data fetched from an API.
 
 ## Goals
 
