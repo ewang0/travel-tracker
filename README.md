@@ -7,16 +7,14 @@
 ## Contents
 1. [Overview and Goals](#overview)
 1. [Technologies](#technologies)
-1. [Project Demo](#Demo)
+1. [Demo](#demo)
 ---
 
 ## Overview
 
-Hi there! I'm a Module 2 Front-End student at the Turing School of Software and Design. Travel-Tracker was the final solo project of Module 2. We were assigned the task of creating a application to manage and track different trips for users as well as a travel agency (administrator). We populated our app with data fetched from an API.
+Travel-Tracker is an application to manage and track different trips for users as well as a travel agency (administrator). App is popualted with fictional travel data fetched from an API.
 
 ## Goals
-
-The project's goals, listed below in an abbreviated form, are taken directly from the Turing project write-up:
 
 ``` Markdown
 - Use OOP to drive the design of the application and the code
